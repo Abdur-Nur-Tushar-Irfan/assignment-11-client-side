@@ -4,11 +4,11 @@ import logo1 from '../../assets/logo1.jpg'
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center p-10 bg-black text-primary-content">
+            <footer className="footer footer-center p-10 bg-primary text-primary-content">
                 <div>
                     <img className='h-10 rounded-lg' src={logo1}/>
                     <p className="font-bold">
-                     <br />Providing reliable tech since 2016
+                        <br />Providing reliable tech since 2020
                     </p>
                     <p>Copyright © 2022 - All right reserved</p>
                 </div>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, Navigate } from 'react-router-dom';
-import logo1 from '../../assets/logo1.jpg'
-import download from '../../assets/download.png'
+import logo4 from '../../assets/logo4.jpg'
+
 
 
 import { AuthContext } from '../../UserContext/UserContext';
@@ -21,7 +21,7 @@ const Headers = () => {
     }
     return (
         <div>
-            <div className="navbar bg-base-100 bg-black">
+            <div className="navbar bg-black">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -45,7 +45,7 @@ const Headers = () => {
                         </ul>
 
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl text-white"><img className='h-8 w-8 rounded-full mx-2' src={logo1} /> <img className='h-8 rounded-lg' src={download} /></Link>
+                    <Link to='/home' className="btn btn-ghost normal-case text-xl text-white"><img className='h-10 w-full mx-2' src={logo4} /> </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
