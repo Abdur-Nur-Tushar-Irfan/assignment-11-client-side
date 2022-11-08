@@ -1,27 +1,31 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../UserContext/UserContext';
 
-const ReviewCard = ({ review }) => {
+const ReviewCard = ({ review,handleDelete }) => {
     const { user } = useContext(AuthContext)
-    const { photoURL, message,date } = review
+    const { photoURL, message, date ,_id,name} = review
+   
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-xl mb-5 flex-col">
-                <div className='items-center flex '>
-                    <figure><img className='rounded-full p-4' src={user?.photoURL} alt="Movie" /></figure>
+            <div className="card lg:card-side bg-base-100 mb-5 shadow-xl p-4">
+                <div className='flex items-center'>
+                    <figure><img className='rounded-full mx-2' src={user?.photoURL} alt="Album" /></figure>
+
                     <div>
-                    <h1>{user?.displayName}</h1>
-                    <h1>date: {date}</h1>
+                        <p>{user?.displayName}</p>
+
+                        <p>Date: {date}</p>
                     </div>
-                    
+
                 </div>
-                
+
                 <div className="card-body">
 
-                    <p className='text-2xl'>Reviews: {message}</p>
+                    <p className='text-2xl '>Reviews: {message}</p>
+                    <p>Name: {name}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-ghost">Delete</button>
-                        <button className="btn btn-ghost">Update</button>
+                        <button onClick={()=>handleDelete(_id)} className="btn btn-primary">Delete</button>
+                        <button className="btn btn-primary">Update</button>
                     </div>
                 </div>
             </div>
