@@ -11,6 +11,7 @@ const Footer = () => {
                         <br />Providing reliable tech since 2020
                     </p>
                     <p>Copyright © 2022 - All right reserved</p>
+                    <p>Abdur Nur Tushar Irfan</p>
                 </div>
                 <div>
                     <div className="grid grid-flow-col gap-4">

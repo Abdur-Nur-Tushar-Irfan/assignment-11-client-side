@@ -7,6 +7,7 @@ import Register from "../components/Register/Register";
 import ShowDetails from "../components/ShowDetails/ShowDetails";
 import Main from "../Main/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import MyReview from "../components/MyReview/MyReview";
 
 export const routes=createBrowserRouter([
     {
@@ -38,6 +39,10 @@ export const routes=createBrowserRouter([
                 path:'/showDetails/:id',
                 element:<ShowDetails></ShowDetails>,
                 loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path:'/myreview',
+                element:<MyReview></MyReview>
             }
 
         ]

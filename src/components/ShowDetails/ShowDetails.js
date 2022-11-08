@@ -1,43 +1,88 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
 
 
 const ShowDetails = () => {
-    const {image_url,details,total_view,title} = useLoaderData()
-    const {user}=useContext(AuthContext)
-    
+    const { image_url, details, total_view, title,_id } = useLoaderData()
+    const { user } = useContext(AuthContext)
+    const handleInsert =(event)=>{
+        event.preventDefault();
+        const form=event.target;
+        const email=user?.email;
+        const date=form.date.value;
+        const name=form.name.value;
+        const message=form.message.value;
+        const photoURL=form.photoURL.value;
+        const reviews={
+            
+            serviceName:title,
+            serviceId:_id,
+            email,
+            name,
+            message,
+            photoURL,
+            date
+        }
+        fetch('http://localhost:5000/reviews',{
+            method:'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify(reviews)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data)
+            toast.success('inserted successfully')
+            form.reset();
+
+        })
+        .catch(error=>console.error(error))
+
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-black text-amber-700">
-                <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="hero-content flex-col lg:flex-row">
+
                     <div className="text-center lg:text-left border p-6">
                         <p className='text-4xl mb-3 text-cyan-800 text-center'>{title}</p>
-                        <img className='h-80 w-full' src={image_url}/>
+                        <img className='h-80 w-full' src={image_url} />
                         <p className="py-6">{details}</p>
                         <div className='text-center text-2xl'>Total-views: {total_view}</div>
-                        
+
                     </div>
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
+                    <form onSubmit={handleInsert} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
+
                         <div className="card-body">
                             <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="text" defaultValue={user?.email} placeholder="email" className="input input-bordered" readOnly />
+                               
+                                <input type="text" name='email' defaultValue={user?.email} placeholder="email" className="input input-bordered" readOnly />
                             </div>
                             <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Your Name</span>
-                                </label>
-                                <input type="text" placeholder="Your Name" className="input input-bordered" />
-                              
+                               
+                                <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+
                             </div>
+                            <div className="form-control">
+                               
+                                <input type="text" name='photoURL' placeholder="Your Photo" className="input input-bordered"/>
+                            </div>
+                            <div className="form-control">
+                               
+                                <input type="date" name='date' placeholder="" className="input input-bordered"/>
+                            </div>
+                           
+
+                            <textarea className="textarea textarea-bordered" name='message' placeholder="Your review"></textarea>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Add Review</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
 

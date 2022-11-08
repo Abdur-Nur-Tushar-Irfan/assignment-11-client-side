@@ -43,13 +43,13 @@ const Login = () => {
     }
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen bg-black shadow-2xl">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center w-full lg:text-left">
                         <img src={login} />
                     </div>
 
-                    <form onSubmit={handleSignIn} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={handleSignIn} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-white">
                         <div className="card-body">
                             <h1 className="text-4xl font-bold">Login now!</h1>
                             <div className="form-control">
