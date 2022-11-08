@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import register from '../../assets/login.svg'
+import useTitle from '../../hooks/useTitle';
 import { AuthContext } from '../../UserContext/UserContext';
 
 const Register = () => {
     const {createUser,updateUserProfile}=useContext(AuthContext)
+    useTitle('Register')
     const handleSubmit=(event)=>{
         event.preventDefault();
         const form=event.target;
