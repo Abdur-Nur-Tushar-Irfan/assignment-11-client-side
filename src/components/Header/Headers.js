@@ -32,6 +32,7 @@ const Headers = () => {
                                         <li><Link to='/home'>Home</Link></li>
 
                                         <li><Link to='/blog'>Blog</Link></li>
+                                        <li><Link to='/addservice'>Add Service</Link></li>
                                         <li><Link to='/myreview'>My Review</Link></li>
 
                                     </>
@@ -43,6 +44,7 @@ const Headers = () => {
                                         <li><Link to='/home'>Home</Link></li>
 
                                         <li><Link to='/blog'>Blog</Link></li>
+                                        <li><Link to='/addservice'>Add Service</Link></li>
                                     </>
                             }
 
@@ -63,6 +65,7 @@ const Headers = () => {
                                     <li><Link to='/home'>Home</Link></li>
 
                                     <li><Link to='/blog'>Blog</Link></li>
+                                    <li><Link to='/addservice'>Add Service</Link></li>
                                     <li><Link to='/myreview'>My Review</Link></li>
 
                                 </>
@@ -72,6 +75,7 @@ const Headers = () => {
                                     <li><Link to='/home'>Home</Link></li>
 
                                     <li><Link to='/blog'>Blog</Link></li>
+                                    <li><Link to='/addservice'>Add Service</Link></li>
                                 </>
                         }
                     </ul>
