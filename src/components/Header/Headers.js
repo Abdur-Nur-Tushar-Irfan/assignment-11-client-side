@@ -31,16 +31,18 @@ const Headers = () => {
                             <ul className="menu menu-horizontal p-0">
                                 {
                                     user?.displayName ?
-                                        <>
-                                             <Link className='font-bold text-white mx-5' to='/home'>Home</Link>
+                                        <> 
+                                            <Link className='font-bold text-white mx-5' to='/home'>Home</Link>
+                                            <Link className='font-bold text-white mx-5' to='/blog'>Blog</Link>
                                             <Link className='font-bold text-white ' to='/myreview'>My Review</Link>
-                                            
 
                                         </>
 
                                         :
                                         <>
-                                           
+                                            <Link className='font-bold text-white mx-5' to='/home'>Home</Link>
+                                            <Link className='font-bold text-white mx-5' to='/blog'>Blog</Link>
+
 
                                         </>
                                 }
@@ -72,14 +74,17 @@ const Headers = () => {
                             user?.displayName ?
                                 <>
                                     <Link className='font-bold text-white mx-5' to='/home'>Home</Link>
+                                    <Link className='font-bold text-white mx-5' to='/blog'>Blog</Link>
                                     <Link className='font-bold text-white' to='/myreview'>My Review</Link>
-                                    
+
 
                                 </>
 
                                 :
                                 <>
-                                    
+                                    <Link className='font-bold text-white mx-5' to='/home'>Home</Link>
+                                    <Link className='font-bold text-white mx-5' to='/blog'>Blog</Link>
+
 
                                 </>
                         }

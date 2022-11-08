@@ -8,6 +8,7 @@ import ShowDetails from "../components/ShowDetails/ShowDetails";
 import Main from "../Main/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyReview from "../components/MyReview/MyReview";
+import Blog from "../components/Blog/Blog";
 
 export const routes=createBrowserRouter([
     {
@@ -43,6 +44,10 @@ export const routes=createBrowserRouter([
             {
                 path:'/myreview',
                 element:<MyReview></MyReview>
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             }
 
         ]

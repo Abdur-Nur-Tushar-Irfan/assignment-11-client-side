@@ -1,47 +1,60 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../UserContext/UserContext';
+import Review from '../Review/Review';
 
 
 const ShowDetails = () => {
-    const { image_url, details, total_view, title,_id } = useLoaderData()
+    const services = useLoaderData()
+    // console.log(services)
+    const [reviews, setReviews] = useState([])
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews?serviceName=${services.title}`)
+            .then(res => res.json())
+            .then(data => setReviews(data))
+    }, [])
+
+
+
+    const { image_url, details, total_view, title, _id } = useLoaderData()
     const { user } = useContext(AuthContext)
-    const handleInsert =(event)=>{
+    const handleInsert = (event) => {
         event.preventDefault();
-        const form=event.target;
-        const email=user?.email;
-        const date=form.date.value;
-        const name=form.name.value;
-        const message=form.message.value;
-        const photoURL=form.photoURL.value;
-        const reviews={
-            
-            serviceName:title,
-            serviceId:_id,
+        const form = event.target;
+        const email = user?.email;
+        const date = form.date.value;
+        const name = form.name.value;
+        const message = form.message.value;
+        const photoURL = form.photoURL.value;
+        const reviews = {
+
+            serviceName: title,
+            serviceId: _id,
             email,
             name,
             message,
             photoURL,
             date
         }
-        fetch('http://localhost:5000/reviews',{
-            method:'POST',
-            headers:{
-                'content-type':'application/json'
+        fetch('http://localhost:5000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(reviews)
+            body: JSON.stringify(reviews)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data)
-            toast.success('inserted successfully')
-            form.reset();
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                toast.success('inserted successfully')
+                form.reset();
 
-        })
-        .catch(error=>console.error(error))
+            })
+            .catch(error => console.error(error))
 
     }
+
 
     return (
         <div>
@@ -55,34 +68,72 @@ const ShowDetails = () => {
                         <div className='text-center text-2xl'>Total-views: {total_view}</div>
 
                     </div>
-                    <form onSubmit={handleInsert} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
 
-                        <div className="card-body">
-                            <div className="form-control">
-                               
-                                <input type="text" name='email' defaultValue={user?.email} placeholder="email" className="input input-bordered" readOnly />
-                            </div>
-                            <div className="form-control">
-                               
-                                <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
 
-                            </div>
-                            <div className="form-control">
-                               
-                                <input type="text" name='photoURL' placeholder="Your Photo" className="input input-bordered"/>
-                            </div>
-                            <div className="form-control">
-                               
-                                <input type="date" name='date' placeholder="" className="input input-bordered"/>
-                            </div>
-                           
+                    <div>
+                        <div className="card w-96 bg-base-100 shadow-xl mb-4">
+                            <div className='p-4'>
+                                {
+                                    reviews.length === 0 ?
 
-                            <textarea className="textarea textarea-bordered" name='message' placeholder="Your review"></textarea>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Add Review</button>
+                                        <p>You have No Review</p>
+
+                                        :
+                                        <>
+                                            {
+                                                reviews.map(revw => <Review
+                                                    key={revw._id}
+                                                    revw={revw}
+
+                                                ></Review>)
+                                            }
+
+                                        </>
+                                }
+
+
+
                             </div>
                         </div>
-                    </form>
+                        {
+                            user?.displayName ?
+                                <form onSubmit={handleInsert} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100 ">
+
+                                    <div className="card-body">
+                                        <div className="form-control">
+
+                                            <input type="text" name='email' defaultValue={user?.email} placeholder="email" className="input input-bordered" readOnly />
+                                        </div>
+                                        <div className="form-control">
+
+                                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+
+                                        </div>
+                                        <div className="form-control">
+
+                                            <input type="text" name='photoURL' placeholder="Your Photo" className="input input-bordered" />
+                                        </div>
+                                        <div className="form-control">
+
+                                            <input type="date" name='date' placeholder="" className="input input-bordered" />
+                                        </div>
+
+
+                                        <textarea className="textarea textarea-bordered" name='message' placeholder="Your review"></textarea>
+                                        <div className="form-control mt-6">
+                                            <button className="btn btn-primary">Add Review</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                :
+                                <>
+                                    <p>Log in first for Review</p>
+
+                                </>
+
+
+                        }
+                    </div>
                 </div>
             </div>
 

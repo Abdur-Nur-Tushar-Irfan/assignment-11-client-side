@@ -7,8 +7,8 @@ const ReviewCard = ({ review,handleDelete }) => {
    
     return (
         <div>
-            <div className="card lg:card-side bg-base-100 mb-5 shadow-xl p-4">
-                <div className='flex items-center'>
+            <div className="card lg:card-side bg-base-100 mb-5 shadow-xl ">
+                <div className='flex items-center p-4'>
                     <figure><img className='rounded-full mx-2' src={user?.photoURL} alt="Album" /></figure>
 
                     <div>

@@ -29,6 +29,16 @@ const MyReview = () => {
         }
 
     }
+    const handleUpdate=(id)=>{
+        fetch(`http://localhost:5000/reviews/${id}`,{
+            method:'PATCH',
+            headers:{
+                'content-type':'application/json'
+            },
+            body:JSON.stringify()
+        })
+
+    }
     return (
         <div>
            <h1></h1>
