@@ -3,7 +3,8 @@ import React from 'react';
 const Blog = () => {
     return (
         <div>
-            <h1>This is Blog Page</h1>
+            <h1 className='text-cyan-600 text-4xl mt-3 mb-3'>Explore Some Question</h1>
+            <hr></hr>
             <div className='m-10'>
                 <div tabIndex={0} className="collapse collapse-plus mb-2 border border-base-300 bg-base-100 rounded-box">
                     <div className="collapse-title text-xl font-medium">
