@@ -7,7 +7,7 @@ const Review = ({ revw }) => {
     return (
         <div>
             <div className='flex items-center mb-2'>
-                <img className='rounded-full w-20 mx-2' src={photoURL} />
+                <img className='mask mask-hexagon-2 w-10 mx-2' src={photoURL} />
                 <div>
                 <p>Name: {name}</p>
                 <p>Review: {message}</p>

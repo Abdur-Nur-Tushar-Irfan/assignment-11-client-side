@@ -1,18 +1,21 @@
-# Getting Started with Create React App
+# Getting Started Photography
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Live Server[Click here](https://educational-website-695a3.web.app/).
 
-## Available Scripts
+## Project Feature
 
-In the project directory, you can run:
+- react js
+- Tailwind,DaisyUI
+- react icon
+- firebase authentication
+- react router
+- node js,express js,MongoDb
+- React hot toast
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Project scope
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This Projects is 
 
 ### `npm test`
 

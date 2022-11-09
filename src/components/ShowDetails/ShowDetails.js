@@ -58,12 +58,12 @@ const ShowDetails = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-black text-amber-700">
+            <div className="hero  bg-black text-amber-700">
                 <div className="hero-content flex-col lg:flex-row">
 
                     <div className="text-center lg:text-left border lg:p-6 p-0">
                         <p className='text-4xl mb-3 text-cyan-800 text-center'>{title}</p>
-                        <img className='h-80 w-full' src={image_url} />
+                        <img className='h-80  w-full' src={image_url} />
                         <p className="py-6">{details}</p>
                         <div className='text-center text-2xl'>Total-views: {total_view}</div>
 
