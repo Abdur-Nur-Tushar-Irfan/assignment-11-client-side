@@ -4,6 +4,13 @@ import { AuthContext } from '../../UserContext/UserContext';
 const ReviewCard = ({ review, handleDelete }) => {
     const { user } = useContext(AuthContext)
     const { photoURL, message, date, _id, name } = review
+    
+
+    const handleUpdate=(id)=>{
+      fetch()
+
+
+    }
 
 
 
@@ -34,11 +41,15 @@ const ReviewCard = ({ review, handleDelete }) => {
                         <input type="checkbox" id="my-modal-6" className="modal-toggle" />
                         <div className="modal modal-bottom sm:modal-middle">
                             <div className="modal-box">
-                               <div> <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" /></div>
-                            
-
-                                    <input type="date" name='date' placeholder="" className="input input-bordered" />
-                               
+                                <div className='mb-2'>
+                                    <input type="text" placeholder="Type here" className="input input-bordered w-full " />
+                                </div>
+                                <div className='mb-2'>
+                                    <input type="date" placeholder="Type here" className="input input-bordered w-full " />
+                                </div>
+                                <div>
+                                    <input type="text" placeholder="Type here" className="input input-bordered w-full " />
+                                </div>
                                 <div className="modal-action">
                                     <label htmlFor="my-modal-6" className="btn">X</label>
                                 </div>

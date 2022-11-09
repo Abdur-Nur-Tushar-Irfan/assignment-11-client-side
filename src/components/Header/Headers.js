@@ -50,10 +50,11 @@ const Headers = () => {
 
                         </ul>
                     </div>
-                    <div className="w-10 rounded-full">
+                    <div className="w-10 rounded-full flex">
                         <img className='rounded-full' src={images} />
+                        <Link to='/home' className="btn btn-ghost normal-case text-xl">Photography</Link>
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Photography</Link>
+                    
                    
                 </div>
                
