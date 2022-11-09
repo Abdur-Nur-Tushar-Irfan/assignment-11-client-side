@@ -35,12 +35,12 @@ export const routes=createBrowserRouter([
             {
                 path:'/allservices',
                 element:<AllServices></AllServices>,
-                loader:()=>fetch('http://localhost:5000/allservices')
+                loader:()=>fetch('https://assignment-11-server-cyan.vercel.app/allservices')
             },
             {
                 path:'/showDetails/:id',
                 element:<ShowDetails></ShowDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader:({params})=>fetch(`https://assignment-11-server-cyan.vercel.app/services/${params.id}`)
             },
             {
                 path:'/myreview',

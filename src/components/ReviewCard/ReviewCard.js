@@ -1,17 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../UserContext/UserContext';
 
-const ReviewCard = ({ review,handleDelete }) => {
+const ReviewCard = ({ review, handleDelete }) => {
     const { user } = useContext(AuthContext)
-    const { photoURL, message, date ,_id,name} = review
-    
-  
-   
+    const { photoURL, message, date, _id, name } = review
+
+
+
     return (
         <div>
             <div className="card lg:card-side bg-base-100 mb-5 shadow-xl ">
                 <div className='flex items-center p-4'>
-                    <figure><img className='rounded-full mx-2' src={user?.photoURL} alt="Album" /></figure>
+                    <figure><img className='rounded-full mx-2 w-20' src={user?.photoURL} alt="Album" /></figure>
 
                     <div>
                         <p>{user?.displayName}</p>
@@ -26,8 +26,24 @@ const ReviewCard = ({ review,handleDelete }) => {
                     <p className='text-2xl '>Reviews: {message}</p>
                     <p>Name: {name}</p>
                     <div className="card-actions justify-end">
-                        <button onClick={()=>handleDelete(_id)} className="btn btn-primary">Delete</button>
-                        <button className="btn btn-primary">Update</button>
+                        <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                        {/* The button to open modal */}
+                        <label htmlFor="my-modal-6" className="btn">Update</label>
+
+                        {/* Put this part before </body> tag */}
+                        <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+                        <div className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box">
+                               <div> <input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs" /></div>
+                            
+
+                                    <input type="date" name='date' placeholder="" className="input input-bordered" />
+                               
+                                <div className="modal-action">
+                                    <label htmlFor="my-modal-6" className="btn">X</label>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

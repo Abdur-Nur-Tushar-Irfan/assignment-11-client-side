@@ -10,7 +10,7 @@ const ShowDetails = () => {
     // console.log(services)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceName=${services.title}`)
+        fetch(`https://assignment-11-server-cyan.vercel.app/reviews?serviceName=${services.title}`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
@@ -37,7 +37,7 @@ const ShowDetails = () => {
             photoURL,
             date
         }
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-server-cyan.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -61,7 +61,7 @@ const ShowDetails = () => {
             <div className="hero min-h-screen bg-black text-amber-700">
                 <div className="hero-content flex-col lg:flex-row">
 
-                    <div className="text-center lg:text-left border p-6">
+                    <div className="text-center lg:text-left border lg:p-6 p-0">
                         <p className='text-4xl mb-3 text-cyan-800 text-center'>{title}</p>
                         <img className='h-80 w-full' src={image_url} />
                         <p className="py-6">{details}</p>
@@ -71,7 +71,7 @@ const ShowDetails = () => {
 
 
                     <div>
-                        <div className="card w-96 bg-base-100 shadow-xl mb-4">
+                        <div className="card  bg-base-100 shadow-xl mb-4">
                             <div className='p-4'>
                                 {
                                     reviews.length === 0 ?
