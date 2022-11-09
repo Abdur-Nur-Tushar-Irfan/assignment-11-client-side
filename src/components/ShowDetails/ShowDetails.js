@@ -106,16 +106,16 @@ const ShowDetails = () => {
                                         </div>
                                         <div className="form-control">
 
-                                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
+                                            <input type="text" name='name' required placeholder="Your Name" className="input input-bordered" />
 
                                         </div>
                                         <div className="form-control">
 
-                                            <input type="text" name='photoURL' placeholder="Your Photo" className="input input-bordered" />
+                                            <input type="text" name='photoURL' required placeholder="Your Photo" className="input input-bordered" />
                                         </div>
                                         <div className="form-control">
 
-                                            <input type="date" name='date' placeholder="" className="input input-bordered" />
+                                            <input type="date" name='date' required placeholder="" className="input input-bordered" />
                                         </div>
 
 
