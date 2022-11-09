@@ -9,6 +9,7 @@ import Main from "../Main/Main";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import MyReview from "../components/MyReview/MyReview";
 import Blog from "../components/Blog/Blog";
+import AddService from "../components/AddService/AddService";
 
 export const routes=createBrowserRouter([
     {
@@ -50,7 +51,8 @@ export const routes=createBrowserRouter([
                 element:<Blog></Blog>
             },
             {
-                path:'/addservice'
+                path:'/addservice',
+                element:<PrivateRoute><AddService></AddService></PrivateRoute>
             }
 
         ]

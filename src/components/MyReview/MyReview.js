@@ -8,8 +8,12 @@ const MyReview = () => {
     const { user } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then(res => res.json())
+        fetch(`http://localhost:5000/reviews?email=${user?.email}`,{
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+            .then(res =>res.json())
             .then(data => setReviews(data))
     }, [user?.email])
 
@@ -30,17 +34,7 @@ const MyReview = () => {
             })
         }
 
-    }
-    const handleUpdate=(id)=>{
-        fetch(`http://localhost:5000/reviews/${id}`,{
-            method:'PATCH',
-            headers:{
-                'content-type':'application/json'
-            },
-            body:JSON.stringify()
-        })
-
-    }
+    } 
     return (
         <div>
            <h1></h1>

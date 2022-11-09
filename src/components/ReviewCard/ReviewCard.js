@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../UserContext/UserContext';
 
 const ReviewCard = ({ review,handleDelete }) => {
     const { user } = useContext(AuthContext)
     const { photoURL, message, date ,_id,name} = review
+    
+  
    
     return (
         <div>
